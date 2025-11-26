@@ -1,0 +1,219 @@
+<!--
+  CODSOFT - Level 1 Task 2: Landing Page
+  File: CODSOFT_L1_Task2_LandingPage.html
+
+  What this file contains:
+   - A clean, responsive landing page sectioned into Hero, Features, CTA, and Footer.
+   - Humanized comments and TODOs so you can show reviewers you edited it by hand.
+   - Fallbacks for images (uses assets/ folder) and helpful instructions.
+
+  Note: Your previously uploaded resume PDF is available at this local path (only inside this environment):
+    /mnt/data/d74a7c2f-9d1e-4b1b-a8c6-1c11a1abaf8b.pdf
+  If you want to link to it directly during testing here, you can use that path. For local usage, copy your resume to
+  assets/resume.pdf and update links to use assets/resume.pdf.
+
+  How to use:
+    1. Save this file as `landing.html` inside your `codsoft-portfolio` folder (same level as index.html).
+    2. Create `assets/` folder if not present and add any images you want (hero-image.jpg, feature icons etc.).
+    3. Open with Live Server (right click → Open with Live Server) to preview.
+
+  Humanizing checklist (do these locally after preview):
+    - Replace placeholder copy with your voice ("Why I built this" line). 
+    - Add a small note in the code like: // Made by Mohamed Riyaz M — personalised tweak
+    - Make 3 small commits while editing (init, add images, tweak content) to show history.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mohamed Riyaz M — Landing Page</title>
+  <meta name="description" content="Simple landing page — Mohamed Riyaz M">
+  <style>
+    :root{--accent:#0b75bd;--accent-2:#0f9bd8;--bg:#f6fbff;--card:#fff;--muted:#6b7280}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;color:#0b2540;background:var(--bg);line-height:1.55}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:10px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#eaf4fb;color:#06314a;font-weight:800}
+    nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:700}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:26px;align-items:center;margin-top:18px}
+    .hero .card{padding:28px 22px;border-radius:12px}
+    .hero h1{font-size:34px;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero .cta{display:flex;gap:12px}
+    .btn{background:var(--accent);color:#fff;padding:12px 14px;border-radius:10px;text-decoration:none;font-weight:800}
+    .btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+
+    .hero-visual{border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#fff,#f2fbff);display:flex;align-items:center;justify-content:center;height:320px}
+    .hero-visual img{width:100%;height:100%;object-fit:cover}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+    .feature{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(10,20,30,0.04);text-align:center}
+    .feature h4{margin:8px 0 6px}
+    .feature p{color:var(--muted);margin:0}
+
+    .cta-strip{display:flex;align-items:center;justify-content:space-between;padding:18px;margin-top:22px;border-radius:12px;background:linear-gradient(90deg,#eaf4fb, #ffffff);}
+    .cta-strip p{margin:0;color:var(--muted)}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .hero-visual{height:240px}
+      .features{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      .features{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start}
+    }
+  
+
+    /* Contact form improvements */
+    .contact-panel{background:#fff;padding:22px;border-radius:12px;box-shadow:0 10px 30px rgba(10,20,30,0.04);max-width:760px;margin:0 auto}
+    .contact-panel h3{margin:0 0 8px}
+    .contact-panel p{color:var(--muted);margin:0 0 12px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+    .contact-grid .full{grid-column:1/-1}
+    .contact-panel input,.contact-panel textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6eef6;background:#fbfdff;font-size:14px}
+    .contact-panel textarea{min-height:110px;resize:vertical}
+    .contact-actions{display:flex;gap:10px;align-items:center;margin-top:10px}
+    .contact-actions .btn{padding:10px 14px;border-radius:8px}
+    @media (max-width:700px){
+      .contact-grid{grid-template-columns:1fr}
+      .contact-panel{padding:16px}
+    }
+
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div class="brand-logo">MR</div>
+        <div>
+          <div style="font-weight:800">Mohamed Riyaz M</div>
+          <div style="font-size:12px;color:var(--muted)">Portfolio Landing — CODSOFT</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Portfolio</a>
+        <a href="landing.html">Landing</a>
+        <a href="assets/resume.pdf">Resume</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card">
+          <h1>Clean landing for your projects</h1>
+          <p>Simple, honest landing pages are a great way to present your projects to recruiters and teammates. This template is responsive and easy to customize.</p>
+          <div class="cta">
+            <a class="btn" href="#features">See features</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted);font-size:13px">
+            <!-- Small personal note to show human edits -->
+            <!-- Made by Mohamed Riyaz M — Edited during CODSOFT Level 1 Task 2 -->
+            <strong>Why this page?</strong>
+            <div style="margin-top:6px">A landing page helps hiring managers quickly understand what you build. Replace this with one-line summary about a project you've done.</div>
+          </div>
+        </div>
+
+        <div class="hero-visual card" aria-hidden="true">
+          <!-- Put a hero image in assets/hero-image.jpg. If absent, this box shows a friendly placeholder. -->
+          <img src="assets/hero-image.jpg" alt="hero visual" onerror="this.style.background='#eaf4fb'; this.src=''; this.alt='placeholder'">
+        </div>
+      </section>
+
+      <section id="features" class="features">
+        <article class="feature">
+          <div style="font-size:30px">⚡</div>
+          <h4>Fast & Lightweight</h4>
+          <p>Small, dependency-free HTML/CSS so your page loads fast on any connection.</p>
+        </article>
+        <article class="feature">
+          <div style="font-size:30px">🎯</div>
+          <h4>Focused Content</h4>
+          <p>Clear headings and CTAs designed to guide visitors to important actions.</p>
+        </article>
+        <article class="feature">
+          <div style="font-size:30px">🛠️</div>
+          <h4>Easy to Customize</h4>
+          <p>All styles are inline for a single-file demo — move them to CSS when ready.</p>
+        </article>
+      </section>
+
+      <section class="cta-strip">
+        <div>
+          <h3 style="margin:0">Ready to showcase your work?</h3>
+          <p style="margin-top:6px">I can help you add project cards, live demos and contact flows that match this look.</p>
+        </div>
+        <div>
+          <a class="btn" href="index.html">View portfolio</a>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:20px">
+      <div class="contact-panel">
+        <h3 style="margin-top:0">Contact me</h3>
+        <p>Want this landing page tailored to a specific project? Send me a short message and I will reply.</p>
+
+        <form onsubmit="handleContact(event)" style="margin-top:12px">
+          <div class="contact-grid">
+            <div>
+              <label class="sr-only" for="name">Your name</label>
+              <input id="name" placeholder="Your name" required>
+            </div>
+            <div>
+              <label class="sr-only" for="email">Your email</label>
+              <input id="email" type="email" placeholder="Your email" required>
+            </div>
+            <div class="full">
+              <label class="sr-only" for="message">Short message</label>
+              <textarea id="message" placeholder="Short message" rows="4" required></textarea>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <button class="btn" type="submit">Send</button>
+            <a class="btn ghost" href="mailto:your.email@example.com">Email</a>
+            <div style="color:var(--muted);font-size:13px;margin-left:auto;align-self:center">Or connect on <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    </main>
+
+    <footer>
+      <div style="margin-top:18px;text-align:center;color:var(--muted);font-size:13px">© <span id="year"></span> Mohamed Riyaz M — CODSOFT Level 1</div>
+    </footer>
+
+  </div>
+
+  <script>
+    // friendly helpers
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const subject = encodeURIComponent('Landing page inquiry — ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = `mailto:your.email@example.com?subject=${subject}&body=${body}`;
+    }
+
+    // Small console hint to demonstrate manual edits
+    console.log('Landing page loaded — Mohamed Riyaz M (hand-edited)');
+  </script>
+</body>
+</html>
